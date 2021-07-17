@@ -34,3 +34,11 @@
     background-color: #f7f7f7;
     
 }
+
+.Form-main.invalid input{
+    border-color: red;
+    background: #ffd7d7;
+}
+.Form-main.invalid label{
+    color: red;
+}

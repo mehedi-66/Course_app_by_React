@@ -5,27 +5,37 @@ import { getByTitle } from '@testing-library/react';
 function CourseForm(props){
 
     const [title, setTitle] = useState('');
-
+    const [isValid, setIsValid] = useState(true);
     function courseAddHandler(event){
         // console.log(event.target.value);
-       
+       if(title.trim().length > 0){
+           setIsValid(true);
+       }
         setTitle(event.target.value);
     };
     function submitHandler(event) {
         event.preventDefault();
-        if(title.length !== 0) {
-            props.onAddTitle(title);
-        
+        if(title.trim().length === 0) {
+            
+            setIsValid(false);
+
             setTitle('');
+            return ;
+           
         }
+        props.onAddTitle(title);
+        setTitle('');
+        
+       
         
         
     };
     return (
 
-        <div className="Form-main"> 
+        // String leteral `` back tick
+        <div className={`Form-main ${ !isValid ? 'invalid' : ''}`}> 
             <form>
-                <label className="Form-label">Course</label> <br/>
+                <label  className="Form-label">Course</label> <br/>
                 <input type="text" value={title} onChange={courseAddHandler}/> <br />
                 <button className="Form-btn" onClick={submitHandler}>Add Course</button>
 
