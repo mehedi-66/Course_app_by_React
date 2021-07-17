@@ -1,0 +1,36 @@
+.Form-main{
+    width: 400px;
+    margin: 0 auto;
+    background-color: #96558e;
+    height: 135px;
+    overflow: hidden;
+}
+.Form-label{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 1px 0px 11px;
+    margin: 0px;
+    display: block;
+    color: white;
+
+}
+.Form-main input{
+    width: 90%;
+    display: block;
+    margin: -12px 0px 0px 9px;
+    box-sizing: border-box;
+    padding: 5px;
+    outline: none;
+}
+.Form-main input:hover{
+    background-color: #ffeeee;
+}
+.Form-btn{
+    box-sizing: border-box;
+    padding: 5px;
+    margin: -4px 0px 0px 10px;
+    outline: none;
+    border: 2px solid #cbcec8;
+    background-color: #f7f7f7;
+    
+}

@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import React, {useState} from 'react';
+import CourseForm from './component/CourseFrom/CourseForm';
+import CourseList from './component/CourseList/CourseList';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  let defaultArr = [
 
+    {
+      id: 'e1',
+      title: "Math",
+    },
+    {
+      id: 'e2',
+      title: "History",
+    }
+
+  ];
+
+  const [courseArr, setCourseArr] = useState(defaultArr);
+
+  function addTitleHandler(getTitle) {
+      //console.log("App Title" + getTitle);
+      let NewObj = {
+        id: Math.random().toString(), 
+        title: getTitle,
+      };
+      
+      //courseArr = [...courseArr, NewObj]
+      // console.log(courseArr);
+
+      setCourseArr(() => { 
+        return [NewObj, ...courseArr];
+      });
+  }
+  return (
+    <div>
+       < CourseForm onAddTitle={addTitleHandler} />
+       {
+         courseArr.map( (element) => 
+           < CourseList 
+            key = {element.id}
+            title = {element.title} 
+          />
+         )
+       }
+
+    </div>
+   
+  );
+
+}
 export default App;

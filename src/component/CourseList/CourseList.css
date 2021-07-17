@@ -1,0 +1,11 @@
+.course-list{
+    width: 400px;
+    margin: 10px auto;
+    background-color: #96558e;
+    box-sizing: border-box;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #3a3a3a;
+    border-radius: 3px;
+}
